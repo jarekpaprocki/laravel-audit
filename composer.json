@@ -1,5 +1,5 @@
 {
-    "name": "owen-it/laravel-auditing",
+    "name": "jarek-paprocki/laravel-audit",
     "description": "Audit changes of your Eloquent models in Laravel/Lumen",
     "keywords": [
         "accountability",
@@ -17,25 +17,17 @@
         "revision",
         "tracking"
     ],
-    "homepage": "http://laravel-auditing.com",
+    "homepage": "",
     "type": "package",
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/owen-it/laravel-auditing/issues",
-        "source": "https://github.com/owen-it/laravel-auditing"
+        "issues": "https://github.com/jarekpaprocki/laravel-audit/issues",
+        "source": "https://github.com/jarekpaprocki/laravel-audit"
     },
     "authors": [
         {
-            "name": "Antério Vieira",
-            "email": "anteriovieira@gmail.com"
-        },
-        {
-            "name": "Quetzy Garcia",
-            "email": "quetzyg@altek.org"
-        },
-        {
-            "name": "Raphael França",
-            "email": "raphaelfrancabsb@gmail.com"
+            "name": "Jarek Paprocki",
+            "email": "jarek.paprocki@gmail.com"
         }
     ],
     "require": {
