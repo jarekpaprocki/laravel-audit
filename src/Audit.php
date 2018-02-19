@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Config;
 trait Audit
 {
     /**
+     * 
      * Audit data.
      *
      * @var array
