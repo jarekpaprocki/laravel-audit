@@ -17,6 +17,7 @@ return [
     |
     | Define which Audit model implementation should be used.
     |
+    
     */
 
     'implementation' => JP\Audit\Models\Audit::class,
