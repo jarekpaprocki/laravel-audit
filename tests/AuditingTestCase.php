@@ -12,16 +12,16 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing\Tests;
+namespace JP\Audit\Tests;
 
 use Orchestra\Database\ConsoleServiceProvider;
 use Orchestra\Testbench\TestCase;
-use OwenIt\Auditing\AuditingServiceProvider;
-use OwenIt\Auditing\Resolvers\IpAddressResolver;
-use OwenIt\Auditing\Resolvers\UrlResolver;
-use OwenIt\Auditing\Resolvers\UserAgentResolver;
-use OwenIt\Auditing\Resolvers\UserResolver;
-use OwenIt\Auditing\Tests\Models\User;
+use JP\Audit\AuditingServiceProvider;
+use JP\Audit\Resolvers\IpAddressResolver;
+use JP\Audit\Resolvers\UrlResolver;
+use JP\Audit\Resolvers\UserAgentResolver;
+use JP\Audit\Resolvers\UserResolver;
+use JP\Audit\Tests\Models\User;
 
 class AuditingTestCase extends TestCase
 {

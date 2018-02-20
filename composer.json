@@ -44,12 +44,12 @@
     },
     "autoload": {
         "psr-4": {
-            "OwenIt\\Auditing\\": "src/"
+            "JP\\Audit\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "OwenIt\\Auditing\\Tests\\": "tests/"
+            "JP\\Audit\\Tests\\": "tests/"
         }
     },
     "suggest": {
@@ -61,7 +61,7 @@
         },
         "laravel": {
             "providers": [
-                "OwenIt\\Auditing\\AuditingServiceProvider"
+                "JP\\Audit\\AuditingServiceProvider"
             ]
         }
     }
