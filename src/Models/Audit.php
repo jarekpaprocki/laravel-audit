@@ -12,13 +12,13 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing\Models;
+namespace JP\Audit\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Audit extends Model implements \OwenIt\Auditing\Contracts\Audit
+class Audit extends Model implements \JP\Audit\Contracts\Audit
 {
-    use \OwenIt\Auditing\Audit;
+    use \JP\Audit\Audit;
 
     /**
      * {@inheritdoc}

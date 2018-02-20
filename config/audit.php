@@ -1,11 +1,7 @@
 <?php
 /**
- * This file is part of the Laravel Auditing package.
+ * This file is part of the Laravel Audit package.
  *
- * @author     Antério Vieira <anteriovieira@gmail.com>
- * @author     Quetzy Garcia  <quetzyg@altek.org>
- * @author     Raphael França <raphaelfrancabsb@gmail.com>
- * @copyright  2015-2018
  *
  * For the full copyright and license information,
  * please view the LICENSE.md file that was distributed
@@ -23,7 +19,7 @@ return [
     |
     */
 
-    'implementation' => OwenIt\Auditing\Models\Audit::class,
+    'implementation' => JP\Audit\Models\Audit::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -49,10 +45,10 @@ return [
     |
     */
     'resolver' => [
-        'user'       => OwenIt\Auditing\Resolvers\UserResolver::class,
-        'ip_address' => OwenIt\Auditing\Resolvers\IpAddressResolver::class,
-        'user_agent' => OwenIt\Auditing\Resolvers\UserAgentResolver::class,
-        'url'        => OwenIt\Auditing\Resolvers\UrlResolver::class,
+        'user'       => JP\Audit\Resolvers\UserResolver::class,
+        'ip_address' => JP\Audit\Resolvers\IpAddressResolver::class,
+        'user_agent' => JP\Audit\Resolvers\UserAgentResolver::class,
+        'url'        => JP\Audit\Resolvers\UrlResolver::class,
     ],
 
     /*

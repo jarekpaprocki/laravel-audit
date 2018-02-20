@@ -12,32 +12,32 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing\Events;
+namespace JP\Audit\Events;
 
-use OwenIt\Auditing\Contracts\Auditable;
-use OwenIt\Auditing\Contracts\AuditDriver;
+use JP\Audit\Contracts\Auditable;
+use JP\Audit\Contracts\AuditDriver;
 
 class Auditing
 {
     /**
      * The Auditable model.
      *
-     * @var \OwenIt\Auditing\Contracts\Auditable
+     * @var \JP\Audit\Contracts\Auditable
      */
     public $model;
 
     /**
      * Audit driver.
      *
-     * @var \OwenIt\Auditing\Contracts\AuditDriver
+     * @var \JP\Audit\Contracts\AuditDriver
      */
     public $driver;
 
     /**
      * Create a new Auditing event instance.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable   $model
-     * @param \OwenIt\Auditing\Contracts\AuditDriver $driver
+     * @param \JP\Audit\Contracts\Auditable   $model
+     * @param \JP\Audit\Contracts\AuditDriver $driver
      */
     public function __construct(Auditable $model, AuditDriver $driver)
     {

@@ -12,15 +12,15 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing\Tests\Models;
+namespace JP\Audit\Tests\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use OwenIt\Auditing\Contracts\Auditable;
+use JP\Audit\Contracts\Auditable;
 
 class Article extends Model implements Auditable
 {
-    use \OwenIt\Auditing\Auditable;
+    use \JP\Audit\Auditable;
     use SoftDeletes;
 
     /**

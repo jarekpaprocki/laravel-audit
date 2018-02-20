@@ -12,16 +12,16 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing;
+namespace JP\Audit;
 
 use Illuminate\Support\Manager;
 use InvalidArgumentException;
-use OwenIt\Auditing\Contracts\Auditable;
-use OwenIt\Auditing\Contracts\AuditDriver;
-use OwenIt\Auditing\Drivers\Database;
-use OwenIt\Auditing\Events\Audited;
-use OwenIt\Auditing\Events\Auditing;
-use OwenIt\Auditing\Exceptions\AuditingException;
+use JP\Audit\Contracts\Auditable;
+use JP\Audit\Contracts\AuditDriver;
+use JP\Audit\Drivers\Database;
+use JP\Audit\Events\Audited;
+use JP\Audit\Events\Auditing;
+use JP\Audit\Exceptions\AuditingException;
 
 class Auditor extends Manager implements Contracts\Auditor
 {
@@ -90,7 +90,7 @@ class Auditor extends Manager implements Contracts\Auditor
     /**
      * Create an instance of the Database audit driver.
      *
-     * @return \OwenIt\Auditing\Drivers\Database
+     * @return \JP\Audit\Drivers\Database
      */
     protected function createDatabaseDriver(): Database
     {
@@ -100,8 +100,8 @@ class Auditor extends Manager implements Contracts\Auditor
     /**
      * Fire the Auditing event.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable   $model
-     * @param \OwenIt\Auditing\Contracts\AuditDriver $driver
+     * @param \JP\Audit\Contracts\Auditable   $model
+     * @param \JP\Audit\Contracts\AuditDriver $driver
      *
      * @return bool
      */

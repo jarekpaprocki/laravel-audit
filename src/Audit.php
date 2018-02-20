@@ -12,7 +12,7 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing;
+namespace JP\Audit;
 
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Config;
 trait Audit
 {
     /**
-     * 
+     *
      * Audit data.
      *
      * @var array

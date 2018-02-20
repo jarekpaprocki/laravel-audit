@@ -12,17 +12,17 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing;
+namespace JP\Audit;
 
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
-use OwenIt\Auditing\Contracts\IpAddressResolver;
-use OwenIt\Auditing\Contracts\UrlResolver;
-use OwenIt\Auditing\Contracts\UserAgentResolver;
-use OwenIt\Auditing\Contracts\UserResolver;
-use OwenIt\Auditing\Exceptions\AuditableTransitionException;
-use OwenIt\Auditing\Exceptions\AuditingException;
+use JP\Audit\Contracts\IpAddressResolver;
+use JP\Audit\Contracts\UrlResolver;
+use JP\Audit\Contracts\UserAgentResolver;
+use JP\Audit\Contracts\UserResolver;
+use JP\Audit\Exceptions\AuditableTransitionException;
+use JP\Audit\Exceptions\AuditingException;
 
 trait Auditable
 {

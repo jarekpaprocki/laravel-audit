@@ -12,11 +12,11 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing\Console;
+namespace JP\Audit\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
-use OwenIt\Auditing\AuditingServiceProvider;
+use JP\Audit\AuditingServiceProvider;
 
 class InstallCommand extends Command
 {

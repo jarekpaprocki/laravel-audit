@@ -12,7 +12,7 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing\Exceptions;
+namespace JP\Audit\Exceptions;
 
 use Exception;
 

@@ -12,16 +12,16 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing\Tests\Models;
+namespace JP\Audit\Tests\Models;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
-use OwenIt\Auditing\Contracts\Auditable;
+use JP\Audit\Contracts\Auditable;
 
 class User extends Model implements Auditable, Authenticatable
 {
     use \Illuminate\Auth\Authenticatable;
-    use \OwenIt\Auditing\Auditable;
+    use \JP\Audit\Auditable;
 
     /**
      * {@inheritdoc}

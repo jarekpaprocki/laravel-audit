@@ -12,17 +12,17 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing\Tests;
+namespace JP\Audit\Tests;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\App;
-use OwenIt\Auditing\Contracts\Auditable;
-use OwenIt\Auditing\Exceptions\AuditableTransitionException;
-use OwenIt\Auditing\Exceptions\AuditingException;
-use OwenIt\Auditing\Models\Audit;
-use OwenIt\Auditing\Tests\Models\Article;
-use OwenIt\Auditing\Tests\Models\User;
+use JP\Audit\Contracts\Auditable;
+use JP\Audit\Exceptions\AuditableTransitionException;
+use JP\Audit\Exceptions\AuditingException;
+use JP\Audit\Models\Audit;
+use JP\Audit\Tests\Models\Article;
+use JP\Audit\Tests\Models\User;
 
 class AuditableTest extends AuditingTestCase
 {
@@ -735,7 +735,7 @@ class AuditableTest extends AuditingTestCase
     public function itFailsToTransitionWhenTheAuditAuditableTypeDoesNotMatchTheModelType()
     {
         $this->expectException(AuditableTransitionException::class);
-        $this->expectExceptionMessage('Expected Auditable type OwenIt\Auditing\Tests\Models\Article, got OwenIt\Auditing\Tests\Models\User instead');
+        $this->expectExceptionMessage('Expected Auditable type JP\Audit\Tests\Models\Article, got JP\Audit\Tests\Models\User instead');
 
         $audit = factory(Audit::class)->make([
             'auditable_type' => User::class,
@@ -806,7 +806,7 @@ class AuditableTest extends AuditingTestCase
             $model->transitionTo($incompatibleAudit);
         } catch (AuditableTransitionException $e) {
             $this->assertSame(
-                'Incompatibility between [OwenIt\Auditing\Tests\Models\Article:1] and [OwenIt\Auditing\Models\Audit:3]',
+                'Incompatibility between [JP\Audit\Tests\Models\Article:1] and [JP\Audit\Models\Audit:3]',
                 $e->getMessage()
             );
 

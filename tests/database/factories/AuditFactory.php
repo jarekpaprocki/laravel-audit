@@ -12,9 +12,9 @@
  * with this source code.
  */
 use Faker\Generator as Faker;
-use OwenIt\Auditing\Models\Audit;
-use OwenIt\Auditing\Tests\Models\Article;
-use OwenIt\Auditing\Tests\Models\User;
+use JP\Audit\Models\Audit;
+use JP\Audit\Tests\Models\Article;
+use JP\Audit\Tests\Models\User;
 
 /*
 |--------------------------------------------------------------------------

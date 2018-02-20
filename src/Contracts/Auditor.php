@@ -12,14 +12,14 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing\Contracts;
+namespace JP\Audit\Contracts;
 
 interface Auditor
 {
     /**
      * Get an audit driver instance.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable $model
+     * @param \JP\Audit\Contracts\Auditable $model
      *
      * @return AuditDriver
      */
@@ -28,7 +28,7 @@ interface Auditor
     /**
      * Perform an audit.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable $model
+     * @param \JP\Audit\Contracts\Auditable $model
      *
      * @return void
      */

@@ -12,7 +12,7 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing\Contracts;
+namespace JP\Audit\Contracts;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;

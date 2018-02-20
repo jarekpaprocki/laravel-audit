@@ -12,18 +12,18 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing\Tests\Functional;
+namespace JP\Audit\Tests\Functional;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Event;
 use InvalidArgumentException;
-use OwenIt\Auditing\Events\Auditing;
-use OwenIt\Auditing\Exceptions\AuditingException;
-use OwenIt\Auditing\Models\Audit;
-use OwenIt\Auditing\Tests\AuditingTestCase;
-use OwenIt\Auditing\Tests\Models\Article;
-use OwenIt\Auditing\Tests\Models\User;
+use JP\Audit\Events\Auditing;
+use JP\Audit\Exceptions\AuditingException;
+use JP\Audit\Models\Audit;
+use JP\Audit\Tests\AuditingTestCase;
+use JP\Audit\Tests\Models\Article;
+use JP\Audit\Tests\Models\User;
 
 class AuditingTest extends AuditingTestCase
 {

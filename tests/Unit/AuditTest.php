@@ -12,14 +12,14 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing\Tests;
+namespace JP\Audit\Tests;
 
 use Carbon\Carbon;
 use DateTimeInterface;
 use Mockery;
-use OwenIt\Auditing\Models\Audit;
-use OwenIt\Auditing\Tests\Models\Article;
-use OwenIt\Auditing\Tests\Models\User;
+use JP\Audit\Models\Audit;
+use JP\Audit\Tests\Models\Article;
+use JP\Audit\Tests\Models\User;
 
 class AuditTest extends AuditingTestCase
 {

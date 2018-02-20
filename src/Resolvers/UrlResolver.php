@@ -12,12 +12,12 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing\Resolvers;
+namespace JP\Audit\Resolvers;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Request;
 
-class UrlResolver implements \OwenIt\Auditing\Contracts\UrlResolver
+class UrlResolver implements \JP\Audit\Contracts\UrlResolver
 {
     /**
      * {@inheritdoc}

@@ -12,10 +12,10 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing;
+namespace JP\Audit;
 
-use OwenIt\Auditing\Contracts\Auditable;
-use OwenIt\Auditing\Facades\Auditor;
+use JP\Audit\Contracts\Auditable;
+use JP\Audit\Facades\Auditor;
 
 class AuditableObserver
 {
@@ -29,7 +29,7 @@ class AuditableObserver
     /**
      * Handle the retrieved event.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable $model
+     * @param \JP\Audit\Contracts\Auditable $model
      *
      * @return void
      */
@@ -41,7 +41,7 @@ class AuditableObserver
     /**
      * Handle the created event.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable $model
+     * @param \JP\Audit\Contracts\Auditable $model
      *
      * @return void
      */
@@ -53,7 +53,7 @@ class AuditableObserver
     /**
      * Handle the updated event.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable $model
+     * @param \JP\Audit\Contracts\Auditable $model
      *
      * @return void
      */
@@ -68,7 +68,7 @@ class AuditableObserver
     /**
      * Handle the deleted event.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable $model
+     * @param \JP\Audit\Contracts\Auditable $model
      *
      * @return void
      */
@@ -80,7 +80,7 @@ class AuditableObserver
     /**
      * Handle the restoring event.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable $model
+     * @param \JP\Audit\Contracts\Auditable $model
      *
      * @return void
      */
@@ -95,7 +95,7 @@ class AuditableObserver
     /**
      * Handle the restored event.
      *
-     * @param \OwenIt\Auditing\Contracts\Auditable $model
+     * @param \JP\Audit\Contracts\Auditable $model
      *
      * @return void
      */

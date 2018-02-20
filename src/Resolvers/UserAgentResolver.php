@@ -12,11 +12,11 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing\Resolvers;
+namespace JP\Audit\Resolvers;
 
 use Illuminate\Support\Facades\Request;
 
-class UserAgentResolver implements \OwenIt\Auditing\Contracts\UserAgentResolver
+class UserAgentResolver implements \JP\Audit\Contracts\UserAgentResolver
 {
     /**
      * {@inheritdoc}

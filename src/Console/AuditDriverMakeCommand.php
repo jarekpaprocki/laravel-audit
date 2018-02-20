@@ -12,7 +12,7 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing\Console;
+namespace JP\Audit\Console;
 
 use Illuminate\Console\GeneratorCommand;
 

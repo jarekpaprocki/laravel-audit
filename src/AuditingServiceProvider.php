@@ -12,13 +12,13 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing;
+namespace JP\Audit;
 
 use Illuminate\Support\ServiceProvider;
-use OwenIt\Auditing\Console\AuditDriverMakeCommand;
-use OwenIt\Auditing\Console\AuditTableCommand;
-use OwenIt\Auditing\Console\InstallCommand;
-use OwenIt\Auditing\Contracts\Auditor;
+use JP\Audit\Console\AuditDriverMakeCommand;
+use JP\Audit\Console\AuditTableCommand;
+use JP\Audit\Console\InstallCommand;
+use JP\Audit\Contracts\Auditor;
 
 class AuditingServiceProvider extends ServiceProvider
 {
@@ -59,7 +59,7 @@ class AuditingServiceProvider extends ServiceProvider
         ]);
 
         $this->app->singleton(Auditor::class, function ($app) {
-            return new \OwenIt\Auditing\Auditor($app);
+            return new \JP\Audit\Auditor($app);
         });
     }
 

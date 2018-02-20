@@ -12,7 +12,7 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing\Facades;
+namespace JP\Audit\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -23,6 +23,6 @@ class Auditor extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return \OwenIt\Auditing\Contracts\Auditor::class;
+        return \JP\Audit\Contracts\Auditor::class;
     }
 }

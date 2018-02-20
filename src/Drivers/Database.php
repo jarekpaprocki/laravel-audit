@@ -12,12 +12,12 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing\Drivers;
+namespace JP\Audit\Drivers;
 
 use Illuminate\Support\Facades\Config;
-use OwenIt\Auditing\Contracts\Audit;
-use OwenIt\Auditing\Contracts\Auditable;
-use OwenIt\Auditing\Contracts\AuditDriver;
+use JP\Audit\Contracts\Audit;
+use JP\Audit\Contracts\Auditable;
+use JP\Audit\Contracts\AuditDriver;
 
 class Database implements AuditDriver
 {
@@ -26,7 +26,7 @@ class Database implements AuditDriver
      */
     public function audit(Auditable $model): Audit
     {
-        $implementation = Config::get('audit.implementation', \OwenIt\Auditing\Models\Audit::class);
+        $implementation = Config::get('audit.implementation', \JP\Audit\Models\Audit::class);
 
         return call_user_func([$implementation, 'create'], $model->toAudit());
     }

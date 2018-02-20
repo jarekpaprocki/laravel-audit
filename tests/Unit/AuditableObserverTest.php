@@ -12,10 +12,10 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing\Tests;
+namespace JP\Audit\Tests;
 
-use OwenIt\Auditing\AuditableObserver;
-use OwenIt\Auditing\Tests\Models\Article;
+use JP\Audit\AuditableObserver;
+use JP\Audit\Tests\Models\Article;
 
 class AuditableObserverTest extends AuditingTestCase
 {

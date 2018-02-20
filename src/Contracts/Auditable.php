@@ -12,7 +12,7 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing\Contracts;
+namespace JP\Audit\Contracts;
 
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
@@ -58,7 +58,7 @@ interface Auditable
     /**
      * Return data for an Audit.
      *
-     * @throws \OwenIt\Auditing\Exceptions\AuditingException
+     * @throws \JP\Audit\Exceptions\AuditingException
      *
      * @return array
      */
@@ -128,7 +128,7 @@ interface Auditable
      * @param Audit $audit
      * @param bool  $old
      *
-     * @throws \OwenIt\Auditing\Exceptions\AuditableTransitionException
+     * @throws \JP\Audit\Exceptions\AuditableTransitionException
      *
      * @return Auditable
      */

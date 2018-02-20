@@ -12,11 +12,11 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing\Resolvers;
+namespace JP\Audit\Resolvers;
 
 use Illuminate\Support\Facades\Request;
 
-class IpAddressResolver implements \OwenIt\Auditing\Contracts\IpAddressResolver
+class IpAddressResolver implements \JP\Audit\Contracts\IpAddressResolver
 {
     /**
      * {@inheritdoc}

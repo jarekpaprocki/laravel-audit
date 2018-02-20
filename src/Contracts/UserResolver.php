@@ -12,7 +12,7 @@
  * with this source code.
  */
 
-namespace OwenIt\Auditing\Contracts;
+namespace JP\Audit\Contracts;
 
 interface UserResolver
 {
