@@ -23,7 +23,8 @@ use JP\Audit\Contracts\UserAgentResolver;
 use JP\Audit\Contracts\UserResolver;
 use JP\Audit\Exceptions\AuditableTransitionException;
 use JP\Audit\Exceptions\AuditingException;
-
+use JP\Audit\Events\Auditing;
+use Illuminate\Support\Facades\Event;
 trait Auditable
 {
     /**
@@ -47,6 +48,8 @@ trait Auditable
      */
     public static $auditingDisabled = false;
 
+    public $relatedFields=[];
+
     /**
      * Auditable boot logic.
      *
@@ -56,6 +59,35 @@ trait Auditable
     {
         if (static::isAuditingEnabled()) {
             static::observe(new AuditableObserver());
+            Event::listen(Auditing::class, function ($event) {
+                $temp1 = $event->model;
+                //print_r('<pre>');
+
+                //$event->model->attributes['conferenceUnits']=json_encode([2,3]);
+                //$event->model->original['conferenceUnits']=json_encode([]);
+                //print_r($event->model->attributes);
+               //print_r($event->model);
+                $relations = $temp1->getRelations();
+                foreach($relations as $key1=>$relation){
+                    $relationValues=[];
+                    foreach($relation as $rel){
+                        $relationValues[]=$rel->id;
+                    }
+                    $event->model->original[$key1]=json_encode($relationValues);
+                }
+                foreach($event->model->getRelations() as $key2=>$relation2){
+                    $event->model->load($key2);
+                    $relationValues=[];
+                    foreach($event->model->getRelation($key2) as $rel3){
+                        $relationValues[]=$rel3->id;
+                    }
+                    $event->model->attributes[$key2]=json_encode($relationValues);
+                }
+                //if($event->model->auditEvent!="created") dd($event->model);
+
+                return true;
+                //dd($event->model);
+            });
         }
     }
 
@@ -158,9 +190,11 @@ trait Auditable
     {
         $old = [];
         $new = [];
-
+        //$this->load('conferenceUnits');
+//dd($this,$this->getDirty());
         foreach ($this->getDirty() as $attribute => $value) {
             if ($this->isAttributeAuditable($attribute)) {
+                //print_r("auditable: ".$attribute.' ');
                 $old[$attribute] = array_get($this->original, $attribute);
                 $new[$attribute] = array_get($this->attributes, $attribute);
             }
@@ -238,11 +272,10 @@ trait Auditable
         $this->resolveAuditExclusions();
 
         list($old, $new) = call_user_func([$this, $attributeGetter]);
-
         $userForeignKey = Config::get('audit.user.foreign_key', 'user_id');
 
         $tags = implode(',', $this->generateTags());
-
+            if(empty($old) && empty($new) && $this->auditEvent!=='restored') return [];
         return $this->transformAudit([
             'old_values'     => $old,
             'new_values'     => $new,
@@ -347,7 +380,9 @@ trait Auditable
     protected function isAttributeAuditable(string $attribute): bool
     {
         // The attribute should not be audited
+
         if (in_array($attribute, $this->excludedAttributes)) {
+
             return false;
         }
 
@@ -379,12 +414,14 @@ trait Auditable
      */
     protected function resolveAttributeGetter($event)
     {
+
         foreach ($this->getAuditEvents() as $key => $value) {
             $auditableEvent = is_int($key) ? $value : $key;
 
             $auditableEventRegex = sprintf('/%s/', preg_replace('/\*+/', '.*', $auditableEvent));
 
             if (preg_match($auditableEventRegex, $event)) {
+
                 return is_int($key) ? sprintf('get%sEventAttributes', ucfirst($event)) : $value;
             }
         }
@@ -509,6 +546,20 @@ trait Auditable
     public function generateTags(): array
     {
         return [];
+    }
+
+
+    public function rollbackTo(int $version){
+        $list = $this->audits()->where('id','>=',$version)->get()->reverse();
+
+        $rollback=null;
+        //$attrs=[];
+        foreach($list as $audit){
+            $rollback = $this->transitionTo($audit,$version!=$audit->id);
+            //$attrs[]=$rollback->getAttributes();
+        }
+
+        return $rollback;
     }
 
     /**

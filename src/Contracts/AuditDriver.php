@@ -21,9 +21,9 @@ interface AuditDriver
      *
      * @param \JP\Audit\Contracts\Auditable $model
      *
-     * @return \JP\Audit\Contracts\Audit
+     * @return \JP\Audit\Contracts\Audit | boolean
      */
-    public function audit(Auditable $model): Audit;
+    public function audit(Auditable $model);
 
     /**
      * Remove older audits that go over the threshold.

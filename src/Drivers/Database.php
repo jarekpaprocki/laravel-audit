@@ -24,11 +24,12 @@ class Database implements AuditDriver
     /**
      * {@inheritdoc}
      */
-    public function audit(Auditable $model): Audit
+    public function audit(Auditable $model)
     {
         $implementation = Config::get('audit.implementation', \JP\Audit\Models\Audit::class);
-
-        return call_user_func([$implementation, 'create'], $model->toAudit());
+        $toAudit = $model->toAudit();
+        return !empty($toAudit) ? call_user_func([$implementation, 'create'], $model->toAudit()) :
+        null;
     }
 
     /**
