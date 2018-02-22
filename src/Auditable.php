@@ -552,11 +552,10 @@ trait Auditable
     public function rollbackTo(int $version){
         $list = $this->audits()->where('id','>=',$version)->get()->reverse();
 
-        $rollback=null;
-        //$attrs=[];
-        foreach($list as $audit){
+        $rollback=$this;
+
+        foreach($list as $audit){//tak new only in the last version
             $rollback = $this->transitionTo($audit,$version!=$audit->id);
-            //$attrs[]=$rollback->getAttributes();
         }
 
         return $rollback;
@@ -587,8 +586,20 @@ trait Auditable
 
         // The attribute compatibility between the Audit and the Auditable model must be met
         $modified = $audit->getModified();
+        $attributes = $this->getAttributes();
+        if(isset($this->myRelations) && !empty($this->myRelations)){
 
-        if ($incompatibilities = array_diff_key($modified, $this->getAttributes())) {
+            $this->load($this->myRelations);
+            foreach($this->getRelations() as $key=>$relation){
+                $relationValues=[];
+                foreach($this->getRelation($key) as $rel){
+                    $relationValues[]=$rel->id;
+                }
+                $attributes[$key]=json_encode($relationValues);
+            }
+        }
+        if ($incompatibilities = array_diff_key($modified,$attributes )) {
+            //dd($attributes,$modified,$this->getAttributes(),$incompatibilities);
             throw new AuditableTransitionException(sprintf(
                 'Incompatibility between [%s:%s] and [%s:%s]',
                 $this->getMorphClass(),
