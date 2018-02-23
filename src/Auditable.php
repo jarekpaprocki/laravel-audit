@@ -75,8 +75,9 @@ trait Auditable
                     }
                     $event->model->original[$key1]=json_encode($relationValues);
                 }
+                $event->model->load($event->model->myRelations);
                 foreach($event->model->getRelations() as $key2=>$relation2){
-                    $event->model->load($key2);
+                    //$event->model->load($key2);
                     $relationValues=[];
                     foreach($event->model->getRelation($key2) as $rel3){
                         $relationValues[]=$rel3->id;
@@ -554,10 +555,10 @@ trait Auditable
 
         $rollback=$this;
 
-        foreach($list as $audit){//tak new only in the last version
+        foreach($list as $audit){//take new only in the last version
             $rollback = $this->transitionTo($audit,$version!=$audit->id);
-        }
 
+        }
         return $rollback;
     }
 
@@ -590,14 +591,22 @@ trait Auditable
         if(isset($this->myRelations) && !empty($this->myRelations)){
 
             $this->load($this->myRelations);
+
             foreach($this->getRelations() as $key=>$relation){
-                $relationValues=[];
-                foreach($this->getRelation($key) as $rel){
-                    $relationValues[]=$rel->id;
+                if(!isset($this->attributes[$key])){
+                    $relationValues=[];
+
+                    foreach($this->getRelation($key) as $rel){
+                        $relationValues[]=$rel->id;
+                    }
+                    $attributes[$key]=json_encode($relationValues);
+                    //if(!isset($this->attributes[$key]))
+                    $this->setAttribute($key,$attributes[$key]);
                 }
-                $attributes[$key]=json_encode($relationValues);
+
             }
         }
+
         if ($incompatibilities = array_diff_key($modified,$attributes )) {
             //dd($attributes,$modified,$this->getAttributes(),$incompatibilities);
             throw new AuditableTransitionException(sprintf(
